@@ -1,45 +1,47 @@
 # Data 
 
 ## Housing (rent + utilities)
-  - (Zillow rent index by neighborhood)[http://www.zillow.com/research/data/]
+- (Zillow rent index by neighborhood)[http://www.zillow.com/research/data/]
+
 ### User inputs 
-  - kind (bedrooms)
-  - neighborhood (display walk score?)
+- kind (bedrooms)
+- neighborhood (display walk score?)
+
 ## Savings/retirement
-  - age, expected rate of return, annual contribution (including employer's contribution) --> time to $1,000,000
-  ### User inputs
-  -  IRA ($)
-  - 401(k) (% up to max of $18,000)
+- age, expected rate of return, annual contribution (including employer's contribution) --> time to $1,000,000
+### User inputs
+-  IRA ($)
+- 401(k) (% up to max of $18,000)
 ## Eating out
-  - hard code? 
-  - McDonalds
-  ### User inputs 
-  - 
+- hard code? 
+- McDonalds
+### User inputs 
+- 
 ## Groceries
-  - impute from (21 - meals out) * average price of meal
-  ### User inputs 
-  - 
+- impute from (21 - meals out) * average price of meal
+### User inputs 
+- 
 ## Cabs
-  ### User inputs 
-  -  
+### User inputs 
+-  
 ## Public transportation
-  ### User inputs 
-  -  
+### User inputs 
+-  
 ## Driving
-  ### User inputs 
-  -  
+### User inputs 
+-  
 ## Travel (flights, trains, buses, etc.)
-  ### User inputs 
-  -  
+### User inputs 
+-  
 ## Gym
-  - Hard code or choose from a list of gyms (Vida, Gold's, WSC, YMCA)
+- Hard code or choose from a list of gyms (Vida, Gold's, WSC, YMCA)
 ## Recreation (museums, entertainment, etc.)
-  ### User inputs 
-  -  
+### User inputs 
+-  
 ## Shopping 
-  ### User inputs 
-  -  
+### User inputs 
+-  
 ## Healthcare
-  - healthcare.gov (Bronze, Silver, Gold, Platinum)
-  ### User inputs 
-  - 
+- healthcare.gov (Bronze, Silver, Gold, Platinum)
+### User inputs 
+- 
