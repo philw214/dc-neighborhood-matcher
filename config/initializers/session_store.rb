@@ -1,3 +1,3 @@
 # Be sure to restart your server when you modify this file.
 
-Rails.application.config.session_store :cookie_store, key: '_dc-neighborhood-matcher_session'
+Rails.application.config.session_store :cookie_store, key: '_dc_neighborhood_matcher_session'

@@ -1,7 +1,7 @@
 # Data 
 
 ## Housing (rent + utilities)
-* (Zillow rent index by neighborhood)[http://www.zillow.com/research/data/]
+* [Zillow rent index by neighborhood](http://www.zillow.com/research/data/)
 
 ### User inputs 
 * kind (bedrooms)
