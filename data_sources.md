@@ -2,13 +2,14 @@
 
 ## Housing (rent + utilities)
   - (Zillow rent index by neighborhood)[http://www.zillow.com/research/data/]
-  ### User inputs 
+### User inputs 
   - kind (bedrooms)
   - neighborhood (display walk score?)
 ## Savings/retirement
   - age, expected rate of return, annual contribution (including employer's contribution) --> time to $1,000,000
   ### User inputs
-  -  
+  -  IRA ($)
+  - 401(k) (% up to max of $18,000)
 ## Eating out
   - hard code? 
   - McDonalds
