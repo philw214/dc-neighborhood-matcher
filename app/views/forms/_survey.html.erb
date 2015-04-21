@@ -20,13 +20,53 @@
 
   <div class="category">
   <h2>How much do you plan on setting aside for personal savings and retirement?</h2>
-  <%= f.range_field :savings, :in => 0..500_000, :step => '1000' %> 
+  <%= f.range_field :savings, :in => 0..500_000, :step => 1000, :value => 0 %> 
   </div>
 
   <div class="category"> 
   <h2>What kind of health insurance plan will you have</h2>
   <!-- Convert to buttons -->
-  <%= select_tag "healthcare", options_for_select(@health_options) %> 
+  <%= f.select :healthcare, options_for_select(@health_options)%>  
+  </div>
+
+  <div class="category">
+  <h2>How often will you dine out per week?</h2>
+  <%= f.label :dining_out_low, "$" %> 
+  <%= f.select :dining_out_low, options_for_select(0..21) %>
+  <%= f.label :dining_out_medium, "$$" %> 
+  <%= f.select :dining_out_medium, options_for_select(0..21) %>
+  <%= f.label :dining_out_high, "$$$" %> 
+  <%= f.select :dining_out_high, options_for_select(0..21) %>
+  </div>
+
+  <div class="category">
+  <h2>Do you own a car?</h2>
+  <a href="#mass_transit">No</a>
+  <a href="#driving_questions">Yes</a>
+  </div>
+
+  <div>
+  <a name="driving_questions"></a>
+  <h2>How many times a week will you drive?</h2>
+  <%= f.range_field :driving_trips, :in => 0..25, :value => 0 %> 
+  <h2>Average time per trip?</h2>
+  <%= f.range_field :car_trip_duration, :in => 0..25, :value => 0 %>
+  </div>
+
+  <div class="category">
+  <h2>How many trips per week will you take on mass transit?</h2>
+  <%= f.range_field :mass_transit_trips, :in => 0..25, :value => 0 %>
+  <h2>How many trips per week will you take using a taxi, Lyft, Uber, etc.?</h2>
+  <%= f.range_field :cabs, :in => 0..25, :value => 0 %>
+  </div>  
+
+  <div class="category">
+  <h2>How much per week will you spend on recreation?</h2>
+  <h4>Experiences that you pay for, e.g. movies, spa visits, concerts, etc.</h4> 
+  <%= f.range_field :recreation, :in => 0..500_000, :value => 0 %>
+  <h2>How much per week will you spend on shopping?</h2>
+  <h4>i.e. tangible items (but not groceries)</h4>
+  <%= f.range_field :shopping, :in => 0..500_000, :value => 0 %> 
   </div>
 
   <div class="category">

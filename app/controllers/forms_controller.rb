@@ -11,7 +11,7 @@ class FormsController < ApplicationController
     # @form.healthcare_cost
     # @form.savings_cost
     # @dining_cost = @form.dining_cost(@form.dining_out_low, @form.dining_out_medium, @form.dining_out_high)
-    @dining_cost = @form["dining_out_low"]
+    @dining_cost = @form.dining_cost(@form["dining_out_low"], @form["dining_out_medium"], @form["dining_out_high"]) 
     # @form.cabs_cost
     # @form.public_transportation_cost
     # @form.driving_cost
@@ -39,8 +39,10 @@ class FormsController < ApplicationController
 
   def create
     @form = current_or_guest_user.forms.new(forms_params)
+    cooking_cost = 5
+    @groceries = (21 - @form["dining_out_low"] + @form["dining_out_medium"] + @form["dining_out_high"]) * cooking_cost
     if @form.save
-      @form.update(neighborhood_id: params[:neighborhood])
+      @form.update(neighborhood_id: params[:neighborhood], groceries: @groceries)
       redirect_to @form
     else
       render :new
@@ -68,18 +70,17 @@ class FormsController < ApplicationController
         :income, 
         :neighborhood,
         :healthcare,
-        :savings
-        # :dining_out_low,
-        # :dining_out_medium,
-        # :dining_out_high,
-        # :driving_trips,
-        # :car_trip_duration,
-        # :mass_transit_trips,
-        # :groceries,
-        # :cabs,
-        # :public_transportation,
-        # :recreation,
-        # :shopping
+        :savings,
+        :dining_out_low,
+        :dining_out_medium,
+        :dining_out_high,
+        :driving_trips,
+        :car_trip_duration,
+        :mass_transit_trips,
+        :groceries,
+        :cabs,
+        :recreation,
+        :shopping
       )
     end
 
