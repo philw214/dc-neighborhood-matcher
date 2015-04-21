@@ -1,0 +1,83 @@
+<% if @form.errors.any? %> 
+  <ul>
+  <% @form.errors.full_messages.each do |error| %> 
+    <li> <%= error %> </li>
+  <% end %> 
+  </ul>
+<% end %>
+
+<%= form_for @form do |f| %> 
+
+  <div class="category"> 
+  <%= f.label :income %> 
+  <%= range_field_tag("income", nil, min: 0, max: 500_000, step: 1000) %> 
+  </div>
+  
+  <div class="category">
+  <%= f.label :neighborhood %>
+  <select name="neighborhood">
+    <% @neighborhoods.each do |neighborhood| %> 
+      <option value="<%= neighborhood.id %>"><%= neighborhood["name"]%></option>
+    <% end %> 
+  </select>
+  </div>
+
+  <div class="category">
+  <%= f.label :healthcare %> 
+  <select name="healthcare"> 
+  <% @health_options.each do |option| %> 
+    <option value="<%= option %>"><%= option %></option>
+  <% end %> 
+  </select> 
+  </div>
+
+  <div class="category">
+  <%= f.label :savings %> 
+  <%= range_field_tag("savings", nil, min: 0, max: 100, step: 1) %> 
+  </div>
+
+  <div class="category">
+  <%= f.label :eating_out %> 
+  <%= f.text_field :eating_out %> 
+  </div>
+
+  <div class="category">
+  <%= f.label :cabs %> 
+  <%= f.text_field :cabs %> 
+  </div>
+
+  <div class="category">
+  <%= f.label :public_transportation %> 
+  <%= f.text_field :public_transportation %> 
+  </div>
+
+  <div class="category">
+  <%= f.label :driving %> 
+  <%= f.text_field :driving %> 
+  </div>
+
+  <div class="category">
+  <%= f.label :travel %> 
+  <%= f.text_field :travel %> 
+  </div>
+
+  <div class="category">
+  <%= f.label :gym %> 
+  <%= f.text_field :gym %> 
+  </div>
+
+  <div class="category">
+  <%= f.label :recreation %> 
+  <%= f.text_field :recreation %> 
+  </div>
+
+  <div class="category">
+  <%= f.label :shopping %> 
+  <%= f.text_field :shopping %> 
+  </div>
+
+  <div class="category">
+  <%= f.submit "Get feedback" %> 
+  </div>
+
+<% end %>
