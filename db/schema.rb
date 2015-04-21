@@ -30,11 +30,10 @@ ActiveRecord::Schema.define(version: 20150421134623) do
     t.integer  "mass_transit_trips"
     t.decimal  "groceries"
     t.decimal  "cabs"
-    t.decimal  "public_transportation"
     t.decimal  "recreation"
     t.decimal  "shopping"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "neighborhoods", force: :cascade do |t|

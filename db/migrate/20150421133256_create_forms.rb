@@ -14,7 +14,6 @@ class CreateForms < ActiveRecord::Migration
       t.integer :mass_transit_trips
       t.decimal :groceries
       t.decimal :cabs
-      t.decimal :public_transportation
       t.decimal :recreation
       t.decimal :shopping
       t.timestamps null: false
