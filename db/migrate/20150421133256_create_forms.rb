@@ -4,15 +4,17 @@ class CreateForms < ActiveRecord::Migration
       t.belongs_to :user
       t.references :neighborhood
       t.integer :income
-      t.decimal :healthcare
+      t.string :healthcare
       t.decimal :savings
-      t.decimal :eating_out
+      t.integer :dining_out_low
+      t.integer :dining_out_medium
+      t.integer :dining_out_high
+      t.integer :driving_trips
+      t.integer :car_trip_duration
+      t.integer :mass_transit_trips
       t.decimal :groceries
       t.decimal :cabs
       t.decimal :public_transportation
-      t.decimal :driving
-      t.decimal :travel
-      t.decimal :gym
       t.decimal :recreation
       t.decimal :shopping
       t.timestamps null: false

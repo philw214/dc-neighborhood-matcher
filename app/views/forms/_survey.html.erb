@@ -9,71 +9,24 @@
 <%= form_for @form do |f| %> 
 
   <div class="category"> 
-  <%= f.label :income %> 
-  <%= range_field_tag("income", nil, min: 0, max: 500_000, step: 1000) %> 
-  </div>
-  
-  <div class="category">
-  <%= f.label :neighborhood %>
-  <select name="neighborhood">
-    <% @neighborhoods.each do |neighborhood| %> 
-      <option value="<%= neighborhood.id %>"><%= neighborhood["name"]%></option>
-    <% end %> 
-  </select>
+  <h2>What is your individual annual income?</h2>
+  <%= f.range_field :income, :in => 0..500_000, :step => '1000' %> 
   </div>
 
   <div class="category">
-  <%= f.label :healthcare %> 
-  <select name="healthcare"> 
-  <% @health_options.each do |option| %> 
-    <option value="<%= option %>"><%= option %></option>
-  <% end %> 
-  </select> 
+  <h2>Where would you like to live?</h2>
+  <%= select_tag "neighborhood", options_for_select(@neighborhoods.collect {|n| [n["name"], n.id]}) %> 
   </div>
 
   <div class="category">
-  <%= f.label :savings %> 
-  <%= range_field_tag("savings", nil, min: 0, max: 100, step: 1) %> 
+  <h2>How much do you plan on setting aside for personal savings and retirement?</h2>
+  <%= f.range_field :savings, :in => 0..500_000, :step => '1000' %> 
   </div>
 
-  <div class="category">
-  <%= f.label :eating_out %> 
-  <%= f.text_field :eating_out %> 
-  </div>
-
-  <div class="category">
-  <%= f.label :cabs %> 
-  <%= f.text_field :cabs %> 
-  </div>
-
-  <div class="category">
-  <%= f.label :public_transportation %> 
-  <%= f.text_field :public_transportation %> 
-  </div>
-
-  <div class="category">
-  <%= f.label :driving %> 
-  <%= f.text_field :driving %> 
-  </div>
-
-  <div class="category">
-  <%= f.label :travel %> 
-  <%= f.text_field :travel %> 
-  </div>
-
-  <div class="category">
-  <%= f.label :gym %> 
-  <%= f.text_field :gym %> 
-  </div>
-
-  <div class="category">
-  <%= f.label :recreation %> 
-  <%= f.text_field :recreation %> 
-  </div>
-
-  <div class="category">
-  <%= f.label :shopping %> 
-  <%= f.text_field :shopping %> 
+  <div class="category"> 
+  <h2>What kind of health insurance plan will you have</h2>
+  <!-- Convert to buttons -->
+  <%= select_tag "healthcare", options_for_select(@health_options) %> 
   </div>
 
   <div class="category">
