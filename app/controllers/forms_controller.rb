@@ -35,7 +35,6 @@ class FormsController < ApplicationController
     # @form.gym_options
     # @form.recreation_options
     # @form.shopping_options
-
   end
 
   def create

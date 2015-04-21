@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(version: 20150421134623) do
     t.integer  "form_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.integer  "form_id"
     t.datetime "created_at",                          null: false
