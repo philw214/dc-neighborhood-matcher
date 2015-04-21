@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DcNeighborhoodMatcher</title>
+  <title>DC Neighborhood Matcher</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="application.css" type="text/css" media="screen"/>
 </head>
 <body>
-	<div allign = "center">
-	<h1>Budget Your Life Story</h1>
-  	<h2>A tool to help you find out how to live the life you want</h2>
-  
-</div>
-
+<header>
+<h1><%= link_to "Budget DCFit", root_path%></h1>
+</header>
 <%= yield %>
 
 </body>

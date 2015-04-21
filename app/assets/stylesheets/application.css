@@ -16,42 +16,50 @@
  html {
  	font-family: Helvetica,Arial,Verdana,sans-serif;
  	background-size: cover;
-
-
  }
 
- body {
+body {
  	background: #404040;
  	padding: 200px 300px;
  	text-align: center;
  	color: #FFFFFF;
  	line-height: 1.25em;
+  margin: 0;
+}
 
- }
+header{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
- h1 {
+header a,
+header a:visited{
+  text-decoration: none;
+  color: #fff;
+}
+
+h1{
  	font-size: 48px;
  	color: #FFFFFF;
- }
+}
 
 
- h3{
- 	display: inline-block;
- 	font-size: 36px;
- 	padding: 5px 0 5px 0;
- 	font-family: 'Times New Roman', sans-serif;
- 	
- }
+h3{
+	display: inline-block;
+	font-size: 36px;
+	padding: 5px 0 5px 0;
+	font-family: 'Times New Roman', sans-serif;
+}
 
- a {
- 	border: 4px, solid red;
- 	border-radius: 10%;
- 	background: #980000;
- 	color: #FFFFFF;
- 	width: 80%;
- 	padding: 20px;
- 	height: 60px;
-	margin: 20px 20px 20px 20px;
- 	text-decoration: none;
-
- }
+.start a{
+	border: 4px, solid red;
+	border-radius: 10%;
+	background: #980000;
+	color: #FFFFFF;
+	width: 80%;
+	padding: 20px;
+	height: 60px;
+  margin: 20px 20px 20px 20px;
+	text-decoration: none;
+}
