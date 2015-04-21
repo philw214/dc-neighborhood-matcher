@@ -7,7 +7,7 @@ class FormsController < ApplicationController
 
   def new
     @form = Form.new
-    # Menu options 
+    # Menu options
     @neighborhoods = Neighborhood.where(state: "DC").order(:name)
     @health_options = @form.healthcare_options
     # @form.savings_options
@@ -21,7 +21,7 @@ class FormsController < ApplicationController
     # @form.shopping_options
 
 
-    # Calculate costs 
+    # Calculate costs
     # @form.neighborhood_cost
     # @form.healthcare_cost
     # @form.savings_cost
