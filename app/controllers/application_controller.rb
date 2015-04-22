@@ -39,9 +39,10 @@ class ApplicationController < ActionController::Base
       # comment.save!
     # end
   def logging_in
-    guest_form = guest_user.form
+    guest_form = Form.find_by(user_id: guest_user.id)
     guest_form.user_id = current_user.id
     guest_form.save!
+    binding.pry
   end
     
 

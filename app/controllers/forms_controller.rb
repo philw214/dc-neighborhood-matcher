@@ -22,6 +22,7 @@ class FormsController < ApplicationController
     # @form.shopping_cost
     # @form.total_cost
     @total_cost = @dining_cost + @transportation_cost + @cabs_cost # - @savings
+    @user = current_or_guest_user
   end
 
   def new
@@ -40,11 +41,14 @@ class FormsController < ApplicationController
   end
 
   def create
-    @form = current_or_guest_user.forms.new(forms_params)
+    @user = current_or_guest_user
+    @form = @user.forms.new(forms_params)
     cooking_cost = 5
     @groceries = (21 - @form["dining_out_low"] + @form["dining_out_medium"] + @form["dining_out_high"]) * cooking_cost
     if @form.save
       @form.update(neighborhood_id: params[:neighborhood], groceries: @groceries)
+      @user.update(form_id: @form.id)
+      # @form_to_save = @form 
       redirect_to @form
     else
       render :new

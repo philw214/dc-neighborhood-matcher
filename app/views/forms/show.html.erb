@@ -8,8 +8,17 @@
 <p><h3>Your cab costs are $<%= @cabs_cost%> a year</h3></p>
 <p><h3>Your total spending is $<%= @total_cost %></h3></p>
 
-<h3>
-	<nav><a href="Sign Up">Sign Up</a></nav></h3>
+<% if @user = current_user %>
+  <p>You're currently signed in as <%= @user.email %></p>
+  <h3><%= link_to "Log out", destroy_user_session_path %></h3>
+<% else %>
+  <p>You're currently signed in as a guest.</p> 
+  <h3><%= link_to "Sign up", new_user_registration_path %></h3>
+<% end %> 
+</h3>
+
+
+
 
 
 
