@@ -30,17 +30,33 @@ class Form < ActiveRecord::Base
     return @plan_options
   end
 
-  def healthcare_cost(healthcare) # will change healthcare_cost
-    @plans =[
-    bronze = 3312,
-    silver = 4035,
-    employer_paid = 4565,
-    platinum = 4943]
+  def healthcare_cost(plan)
+  none = 0
+  employer_paid = 4564
+  bronze = 3312
+  silver = 4035
+  gold = 4500
+  platinum = 4943
+  catastrophic = 6350
 
-    @cost_options = @plans.shuffle # Fix this
-      
-    return @cost_options
+    if plan == 'None'
+      @healthcare_cost = none
+    elsif plan == 'Employer-Paid'
+      @healthcare_cost = employer_paid
+    elsif plan == 'Bronze'
+      @healthcare_cost = bronze
+    elsif plan == 'Silver' 
+      @healthcare_cost = silver
+    elsif plan == 'Gold'
+      @healthcare_cost = gold
+    elsif plan =='Platinum'
+      @healthcare_cost = platinum
+    else plan == 'Catastrophic'
+      @healthcare_cost = catastrophic
+    end
+    return @healthcare_cost
   end
+        
 
 
   def tax_income (income)
@@ -54,7 +70,7 @@ class Form < ActiveRecord::Base
     medium_cost = 15
     high_cost = 30
 
-    @dining_cost = 
+    @dining_cost = 52 *
       low_cost * low_meals +
       medium_cost * medium_meals + 
       high_cost * high_meals
@@ -70,16 +86,18 @@ class Form < ActiveRecord::Base
     @grocery_cost = meals_at_home * cooking_cost
   end
 
+  def driving_cost(driving_trips, car_trip_duration)
+    gas = 2.50
+    driving = driving_trips * car_trip_duration * 2.50
+    @driving_cost = driving
+    return = @driving_cost
+  end # this method is not complete yet
+
+
   def transportation_cost(mass_transit_trips)
     mass_transit = 2.54 * mass_transit_trips 
     @transportation_cost = mass_transit * 52
     return @transportation_cost
-  end
-
-  def personal_savings(income, savings)
-    saving = income - savings
-    @personal_savings = saving
-    return @personal_savings
   end
 
   def cabs_cost(cabs)
