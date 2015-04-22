@@ -6,20 +6,22 @@ class FormsController < ApplicationController
 
   def show
   # Calculate costs and display outputs 
-    # @form.tax_adjusted_income 
+    @tax_income = @form.tax_income(@form['income'])
     # @form.neighborhood_cost
-    # @form.healthcare_cost
-    # @form.savings_cost
+    @healthcare_cost = @form.healthcare_cost(@form['healthcare'])
+    @personal_savings =  @form.personal_savings(@form['income'], @form['savings'])
     # @dining_cost = @form.dining_cost(@form.dining_out_low, @form.dining_out_medium, @form.dining_out_high)
     @dining_cost = @form.dining_cost(@form["dining_out_low"], @form["dining_out_medium"], @form["dining_out_high"]) 
     # @form.cabs_cost
-    # @form.public_transportation_cost
+    @cabs_cost = @form.cabs_cost(@form['cabs'])
+    @transportation_cost = @form.transportation_cost(@form['mass_transit_trips'])
     # @form.driving_cost
     # @form.travel_cost
-    # @form.gym_cost
+    # @form.gym_cost #golds-gym prices: 499.99
     # @form.recreation_cost
     # @form.shopping_cost
     # @form.total_cost
+    @total_cost = @dining_cost + @transportation_cost + @cabs_cost # - @savings
   end
 
   def new
@@ -29,7 +31,7 @@ class FormsController < ApplicationController
     # @form.savings_options
     # @form.eating_out_options
     # @form.cabs_options
-    # @form.public_transportation_options
+    # @form.public_transportation_options = @form.transportation_cost
     # @form.driving_options
     # @form.travel_options
     # @form.gym_options
