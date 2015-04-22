@@ -1,8 +1,14 @@
 // Place all the styles related to the Forms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper{
+  height: 100%;
+  margin-top: 5em; 
+  position: absolute;
+}
 .category{
   width: 100%;
-  height: 400px;
+  height: 700px; 
   text-align: center;
+  padding: 200px 0 200px 0;
 }
