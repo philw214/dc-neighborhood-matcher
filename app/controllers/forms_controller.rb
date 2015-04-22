@@ -11,8 +11,8 @@ class FormsController < ApplicationController
     @neighborhood = @form.neighborhood(@form)
     @housing_cost = @form.neighborhood_cost(@neighborhood, @bedrooms)
     # @form.neighborhood_cost
-    @healthcare_cost = @form.healthcare_cost(@form['healthcare'])
-    @personal_savings =  @form.personal_savings(@form['income'], @form['savings'])
+    @healthcare_cost = @form.healthcare_cost(@plan)
+    @personal_savings =  @form['savings']
     # @dining_cost = @form.dining_cost(@form.dining_out_low, @form.dining_out_medium, @form.dining_out_high)
     @dining_cost = @form.dining_cost(@form["dining_out_low"], @form["dining_out_medium"], @form["dining_out_high"]) 
     @grocery_cost = @form.grocery_cost(@form["dining_out_low"], @form["dining_out_medium"], @form["dining_out_high"]) 
@@ -22,7 +22,7 @@ class FormsController < ApplicationController
     # @form.driving_cost
     # @form.travel_cost
     # @form.gym_cost #golds-gym prices: 499.99
-    # @form.recreation_cost
+    # @form.recreation_cost #gym, travel, concerts, movies
     # @form.shopping_cost
     # @form.total_cost
     @total_cost = @housing_cost + @dining_cost + @grocery_cost + @transportation_cost + @cabs_cost # - @savings

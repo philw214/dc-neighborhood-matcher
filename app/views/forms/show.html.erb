@@ -2,12 +2,15 @@
 <h2>Your results</h2>
 <h3>Your adjusted income is $<%= @tax_income %></h3>
 <p>You want to live in <%= @neighborhood['name'] %> and it will cost you $<%= @housing_cost %>  
-<p>Your healthcare payment is $ <%= @healtcare_cost %></p>
-<h3>You spend $<%= @dining_cost %> on dining out</h3>
-<h3>You spend $<%= @transportation_cost %> on public transportation a year</h3></p>
-<h3>You are saving $<%= @spersonal_savings %></h3>
-<h3>Your cab costs are $<%= @cabs_cost%> a year</h3>
-<h3>Your total spending is $<%= @total_cost %></h3>
+
+<h3>You spend $<%= @dining_cost %> on dining out in a year</h3>
+<p><h3>You spend $<%= @grocery_cost %> on groceries</h3></p>
+<p><h3>You spend $<%= @transportation_cost %> on public transportation a year</h3></p>
+<p><h3>You are saving $<%= @personal_savings %></h3></p>
+<p><h3>Your cab costs are $<%= @cabs_cost%> a year</h3></p>
+<p><h3>Your total spending is $<%= @total_cost %></h3></p>
+<p>Your healthcare payment is $ <%= @healthcare_cost %></p>
+
 <% if @tax_income >= @total_cost %>
   <h2>More expensive than you thought?</h2>
   <%= link_to "Adjust your budget", edit_form_path(@form) %> 
@@ -15,7 +18,6 @@
   <h2>Want to make some changes?</h2>
   <%= link_to "Revise your budget", edit_form_path(@form) %> 
 <% end %> 
-
 
 <% if @user = current_user %>
   <p>You're currently signed in as <%= @user.email %></p>
