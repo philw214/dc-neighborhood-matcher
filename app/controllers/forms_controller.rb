@@ -4,14 +4,23 @@ class FormsController < ApplicationController
   helper_method :current_or_guest_user
   before_action :current_or_guest_user
 
+  def to_param
+
+  end
+
   def show
   # Calculate costs and display outputs 
     @tax_income = @form.tax_income(@form['income'])
+    @bedrooms = @form['bedrooms']
+    @neighborhood = @form.neighborhood(@form)
+    binding.pry
+    @housing_cost = @form.neighborhood_cost(@neighborhood, @bedrooms)
     # @form.neighborhood_cost
     @healthcare_cost = @form.healthcare_cost(@form['healthcare'])
     @personal_savings =  @form.personal_savings(@form['income'], @form['savings'])
     # @dining_cost = @form.dining_cost(@form.dining_out_low, @form.dining_out_medium, @form.dining_out_high)
     @dining_cost = @form.dining_cost(@form["dining_out_low"], @form["dining_out_medium"], @form["dining_out_high"]) 
+    @grocery_cost = @form.grocery_cost(@form["dining_out_low"], @form["dining_out_medium"], @form["dining_out_high"]) 
     # @form.cabs_cost
     @cabs_cost = @form.cabs_cost(@form['cabs'])
     @transportation_cost = @form.transportation_cost(@form['mass_transit_trips'])
@@ -21,7 +30,7 @@ class FormsController < ApplicationController
     # @form.recreation_cost
     # @form.shopping_cost
     # @form.total_cost
-    @total_cost = @dining_cost + @transportation_cost + @cabs_cost # - @savings
+    @total_cost = @housing_cost + @dining_cost + @grocery_cost + @transportation_cost + @cabs_cost # - @savings
     @user = current_or_guest_user
   end
 
@@ -29,22 +38,14 @@ class FormsController < ApplicationController
     @form = current_or_guest_user.forms.new 
     @neighborhoods = Neighborhood.where(state: "DC").order(:name)
     @health_options = @form.healthcare_options
-    # @form.savings_options
-    # @form.eating_out_options
-    # @form.cabs_options
-    # @form.public_transportation_options = @form.transportation_cost
-    # @form.driving_options
-    # @form.travel_options
-    # @form.gym_options
-    # @form.recreation_options
-    # @form.shopping_options
+    @bedroom_options = @form.bedroom_options
   end
 
   def create
     @user = current_or_guest_user
     @form = @user.forms.new(forms_params)
-    cooking_cost = 5
-    @groceries = (21 - @form["dining_out_low"] + @form["dining_out_medium"] + @form["dining_out_high"]) * cooking_cost
+    # cooking_cost = 5
+    # @groceries = (21 - @form["dining_out_low"] + @form["dining_out_medium"] + @form["dining_out_high"]) * cooking_cost
     if @form.save
       @form.update(neighborhood_id: params[:neighborhood], groceries: @groceries)
       @user.update(form_id: @form.id)
@@ -72,6 +73,7 @@ class FormsController < ApplicationController
         :income, 
         :neighborhood,
         :healthcare,
+        :bedrooms, 
         :savings,
         :dining_out_low,
         :dining_out_medium,

@@ -18,6 +18,8 @@
   <div name="neighborhood_question" class="category">
   <h2>Where would you like to live?</h2>
   <%= select_tag "neighborhood", options_for_select(@neighborhoods.collect {|n| [n["name"], n.id]}) %>
+  <h2>How many bedrooms would you like?</h2>
+  <%= f.select :bedrooms, options_for_select(@bedroom_options) %> 
   <a href="#savings_question">Next</a>
   </div>
 

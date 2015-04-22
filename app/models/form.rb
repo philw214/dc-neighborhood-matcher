@@ -2,19 +2,42 @@ class Form < ActiveRecord::Base
   belongs_to :user
   has_one :neighborhood
 
+  attr_accessor :neighborhood
+
+  def neighborhood(form)
+    @neighborhood = Neighborhood.find(form.neighborhood_id)
+    return @neighborhood
+  end
+
+  def neighborhood_cost(neighborhood, bedrooms)
+    if bedrooms == "Studio"
+      @neighborhood_cost = neighborhood['studio_price'] * 12
+    elsif bedrooms == "One"
+      @neighborhood_cost = neighborhood['one_bed_price'] * 12
+    else
+      @neighborhood_cost = neighborhood['two_bed_price'] * 12
+    end
+    return @neighborhood_cost
+  end
+
+  def bedroom_options
+    @room_options = %w(Studio One Two)
+    return @room_options
+  end
+
   def healthcare_options
     @plan_options = %w(None Employer-Paid Bronze Silver Gold Platinum Catastrophic)
     return @plan_options
   end
 
-  def healthcare_cost(healthcare) #will change healthcare_cost
+  def healthcare_cost(healthcare) # will change healthcare_cost
     @plans =[
     bronze = 3312,
     silver = 4035,
     employer_paid = 4565,
     platinum = 4943]
 
-    @cost_options = @plans.shuffle 
+    @cost_options = @plans.shuffle # Fix this
       
     return @cost_options
   end
@@ -37,6 +60,14 @@ class Form < ActiveRecord::Base
       high_cost * high_meals
 
     return @dining_cost
+  end
+
+
+  def grocery_cost(low_meals, medium_meals, high_meals)
+    meals_out = low_meals + medium_meals + high_meals
+    meals_at_home = 21 - meals_out
+    cooking_cost = 5
+    @grocery_cost = meals_at_home * cooking_cost
   end
 
   def transportation_cost(mass_transit_trips)

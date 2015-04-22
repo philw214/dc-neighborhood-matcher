@@ -4,6 +4,7 @@ class CreateForms < ActiveRecord::Migration
       t.belongs_to :user
       t.references :neighborhood
       t.integer :income
+      t.string :bedrooms
       t.string :healthcare
       t.decimal :savings
       t.integer :dining_out_low

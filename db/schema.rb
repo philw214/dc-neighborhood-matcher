@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150421134623) do
     t.integer  "user_id"
     t.integer  "neighborhood_id"
     t.integer  "income"
+    t.string   "bedrooms"
     t.string   "healthcare"
     t.decimal  "savings"
     t.integer  "dining_out_low"
@@ -38,12 +39,13 @@ ActiveRecord::Schema.define(version: 20150421134623) do
 
   create_table "neighborhoods", force: :cascade do |t|
     t.string   "name"
+    t.integer  "studio_price"
+    t.integer  "one_bed_price"
+    t.integer  "two_bed_price"
     t.string   "city"
     t.string   "state"
-    t.string   "metro"
-    t.string   "county_name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "form_id"
   end
 
