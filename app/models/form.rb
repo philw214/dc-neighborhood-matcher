@@ -1,6 +1,6 @@
 class Form < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :id, use: :slugged
+  # extend FriendlyId
+  # friendly_id :random_path, use: :slugged
   belongs_to :user
   has_one :neighborhood
 
