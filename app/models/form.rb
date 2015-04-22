@@ -1,4 +1,6 @@
 class Form < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :id, use: :slugged
   belongs_to :user
   has_one :neighborhood
 
@@ -10,10 +12,6 @@ class Form < ActiveRecord::Base
   # def generate_slug
   #   self.slug ||= "results"
   #   # Destroy guest when going back?
-  # end
-
-  # def to_param
-  #   slug
   # end
 
   def neighborhood(form)
