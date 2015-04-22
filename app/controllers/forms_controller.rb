@@ -50,10 +50,16 @@ class FormsController < ApplicationController
   end
 
   def edit
+    @neighborhoods = Neighborhood.where(state: "DC").order(:name)
+    @neighborhood = Neighborhood.find(@form.neighborhood_id)
+    @health_options = @form.healthcare_options
+    @bedroom_options = @form.bedroom_options
   end
 
   def update
     if @form.update(forms_params)
+      @form.update(neighborhood_id: params[:neighborhood], groceries: @groceries)
+      # @user.update(form_id: params[:id])
       redirect_to @form
     else
       render :edit
