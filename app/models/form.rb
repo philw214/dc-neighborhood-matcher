@@ -1,8 +1,18 @@
 class Form < ActiveRecord::Base
+  # extend FriendlyId
+  # friendly_id :random_path, use: :slugged
   belongs_to :user
   has_one :neighborhood
 
   attr_accessor :neighborhood
+
+  # validates :slug, uniqueness: true, presence: true 
+  # before_validation :generate_slug
+
+  # def generate_slug
+  #   self.slug ||= "results"
+  #   # Destroy guest when going back?
+  # end
 
   def neighborhood(form)
     @neighborhood = Neighborhood.find(form.neighborhood_id)
@@ -105,10 +115,5 @@ class Form < ActiveRecord::Base
     @cabs_cost = cab_transit
     return @cabs_cost
   end
-
-  
-
-
-
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421134623) do
+ActiveRecord::Schema.define(version: 20150422191640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,13 @@ ActiveRecord::Schema.define(version: 20150421134623) do
     t.decimal  "cabs"
     t.decimal  "recreation"
     t.decimal  "shopping"
+    t.integer  "random_path"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "slug"
   end
+
+  add_index "forms", ["slug"], name: "index_forms_on_slug", using: :btree
 
   create_table "neighborhoods", force: :cascade do |t|
     t.string   "name"

@@ -1,12 +1,8 @@
 class FormsController < ApplicationController
 
-  before_action :find_form, only: [:show, :edit, :update, :destroy]
+  before_action :find_form, only: [:show, :edit, :update]
   helper_method :current_or_guest_user
   before_action :current_or_guest_user
-
-  def to_param
-
-  end
 
   def show
   # Calculate costs and display outputs 
@@ -42,12 +38,11 @@ class FormsController < ApplicationController
 
   def create
     @user = current_or_guest_user
-    @form = @user.forms.new(forms_params)
-    # cooking_cost = 5
-    # @groceries = (21 - @form["dining_out_low"] + @form["dining_out_medium"] + @form["dining_out_high"]) * cooking_cost
+    @form = @user.forms.new(forms_params) # Maybe make form id some SHA?
     if @form.save
       @form.update(neighborhood_id: params[:neighborhood], groceries: @groceries)
-      @user.update(form_id: @form.id)
+      # @user.update(form_id: @form.id)
+      @user.update(form_id: params[:id])
       redirect_to @form
     else
       render :new
@@ -55,10 +50,16 @@ class FormsController < ApplicationController
   end
 
   def edit
+    @neighborhoods = Neighborhood.where(state: "DC").order(:name)
+    @neighborhood = Neighborhood.find(@form.neighborhood_id)
+    @health_options = @form.healthcare_options
+    @bedroom_options = @form.bedroom_options
   end
 
   def update
     if @form.update(forms_params)
+      @form.update(neighborhood_id: params[:neighborhood], groceries: @groceries)
+      # @user.update(form_id: params[:id])
       redirect_to @form
     else
       render :edit
@@ -83,11 +84,13 @@ class FormsController < ApplicationController
         :groceries,
         :cabs,
         :recreation,
-        :shopping
+        :shopping#,
+        # :random_path
       )
     end
 
     def find_form
+      # @form = Form.find_by_slug!(params[:id])
       @form = Form.find(params[:id])
     end
 

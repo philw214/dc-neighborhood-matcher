@@ -17,6 +17,7 @@ class CreateForms < ActiveRecord::Migration
       t.decimal :cabs
       t.decimal :recreation
       t.decimal :shopping
+      t.integer :random_path
       t.timestamps null: false
     end
   end
