@@ -48,7 +48,6 @@ class FormsController < ApplicationController
     if @form.save
       @form.update(neighborhood_id: params[:neighborhood], groceries: @groceries)
       @user.update(form_id: @form.id)
-      # @form_to_save = @form 
       redirect_to @form
     else
       render :new
@@ -64,9 +63,6 @@ class FormsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy # If the user chooses not to save her form
   end
 
   private

@@ -2,3 +2,6 @@
 <div class="summary">
 <%=@profile.bio%>
 </div>
+<p><small><%= link_to "See another", @next_profile %></small></p>
+
+<h3 class="start"><%= link_to "Now it's your turn", new_form_path %></h3>

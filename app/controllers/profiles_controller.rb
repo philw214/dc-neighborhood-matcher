@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @next_profile = Profile.all.sample 
   end
 
 end
