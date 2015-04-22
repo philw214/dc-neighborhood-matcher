@@ -1,19 +1,14 @@
 class FormsController < ApplicationController
 
-  before_action :find_form, only: [:show, :edit, :update, :destroy]
+  before_action :find_form, only: [:show, :edit, :update]
   helper_method :current_or_guest_user
   before_action :current_or_guest_user
-
-  def to_param
-
-  end
 
   def show
   # Calculate costs and display outputs 
     @tax_income = @form.tax_income(@form['income'])
     @bedrooms = @form['bedrooms']
     @neighborhood = @form.neighborhood(@form)
-    binding.pry
     @housing_cost = @form.neighborhood_cost(@neighborhood, @bedrooms)
     # @form.neighborhood_cost
     @healthcare_cost = @form.healthcare_cost(@form['healthcare'])
@@ -44,11 +39,10 @@ class FormsController < ApplicationController
   def create
     @user = current_or_guest_user
     @form = @user.forms.new(forms_params)
-    # cooking_cost = 5
-    # @groceries = (21 - @form["dining_out_low"] + @form["dining_out_medium"] + @form["dining_out_high"]) * cooking_cost
     if @form.save
       @form.update(neighborhood_id: params[:neighborhood], groceries: @groceries)
-      @user.update(form_id: @form.id)
+      # @user.update(form_id: @form.id)
+      @user.update(form_id: params[:id])
       redirect_to @form
     else
       render :new
@@ -89,6 +83,7 @@ class FormsController < ApplicationController
     end
 
     def find_form
+      # @form = Form.find_by_slug!(params[:id])
       @form = Form.find(params[:id])
     end
 

@@ -4,6 +4,18 @@ class Form < ActiveRecord::Base
 
   attr_accessor :neighborhood
 
+  # validates :slug, uniqueness: true, presence: true 
+  # before_validation :generate_slug
+
+  # def generate_slug
+  #   self.slug ||= "results"
+  #   # Destroy guest when going back?
+  # end
+
+  # def to_param
+  #   slug
+  # end
+
   def neighborhood(form)
     @neighborhood = Neighborhood.find(form.neighborhood_id)
     return @neighborhood
@@ -87,10 +99,5 @@ class Form < ActiveRecord::Base
     @cabs_cost = cab_transit
     return @cabs_cost
   end
-
-  
-
-
-
 
 end
