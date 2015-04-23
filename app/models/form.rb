@@ -61,7 +61,7 @@ class Form < ActiveRecord::Base
       @healthcare_cost = gold
     elsif plan =='Platinum'
       @healthcare_cost = platinum
-    else plan == 'Catastrophic'
+    else 
       @healthcare_cost = catastrophic
     end
     return @healthcare_cost
@@ -93,14 +93,14 @@ class Form < ActiveRecord::Base
     meals_out = low_meals + medium_meals + high_meals
     meals_at_home = 21 - meals_out
     cooking_cost = 5
-    @grocery_cost = meals_at_home * cooking_cost
+    @grocery_cost = meals_at_home * cooking_cost * 52
   end
 
   def driving_cost(driving_trips, car_trip_duration)
     gas = 2.50
-    driving = driving_trips * car_trip_duration * 2.50
+    driving = driving_trips * car_trip_duration * 2.50 * 52
     @driving_cost = driving
-    return = @driving_cost
+    return @driving_cost
   end # this method is not complete yet
 
 
@@ -112,8 +112,16 @@ class Form < ActiveRecord::Base
 
   def cabs_cost(cabs)
     cab_transit = 10 * cabs
-    @cabs_cost = cab_transit
+    @cabs_cost = cab_transit 
     return @cabs_cost
   end
+
+  # def recreation_cost
+  #   gym = 499.99
+  #   movies = 15 
+  #   concert= 35
+  #   spa = 85
+  # end
+  
 
 end
