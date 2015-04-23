@@ -27,17 +27,6 @@ http://flickity.metafizzy.co
 
 .gallery-cell-3{
   padding: 250px;
-  background-image: url('saving.jpg');
-  background-size: cover;
-  width: 100%;
-  height: 160px;
-
-  /*background-position: center;*/
-  margin-right: 10px;
-  height: 123px;
-}
-.gallery-cell-4{
-  padding: 250px;
   background-image: url('healthcare.jpg');
   background-size: cover;
   width: 100%;
@@ -48,6 +37,17 @@ http://flickity.metafizzy.co
   height: 123px;
 }
 
+.gallery-cell-4{
+  padding: 250px;
+  background-image: url('saving.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 160px;
+
+  /*background-position: center;*/
+  margin-right: 10px;
+  height: 123px;
+}
 
 .gallery-cell-5{
   padding: 250px;
@@ -75,17 +75,6 @@ http://flickity.metafizzy.co
 
 .gallery-cell-7{
   padding: 250px;
-  background-image: url('driving.jpg');
-  background-size: cover;
-  width: 100%;
-  height: 160px;
-
-  /*background-position: center;*/
-  margin-right: 10px;
-  height: 123px;
-}
-.gallery-cell-8{
-  padding: 250px;
   background-image: url('metro_1024.png');
   background-size: cover;
   width: 100%;
@@ -96,8 +85,31 @@ http://flickity.metafizzy.co
   height: 123px;
 }
 
+.gallery-cell-8{
+  padding: 250px;
+  background-image: url('driving.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 160px;
+
+  /*background-position: center;*/
+  margin-right: 10px;
+  height: 123px;
+}
 
 .gallery-cell-9{
+  padding: 250px;
+  background-image: url('gym.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 160px;
+
+  /*background-position: center;*/
+  margin-right: 10px;
+  height: 123px;
+}
+
+.gallery-cell-10{
   padding: 250px;
   background-image: url('recreation.jpg');
   background-size: cover;
@@ -108,20 +120,8 @@ http://flickity.metafizzy.co
   margin-right: 10px;
   height: 123px;
 }
-/*.gallery-cell-9{
-  padding: 250px;
-  background-image: url('gym.jpg');
-  background-size: cover;
-  width: 100%;
-  height: 160px;
 
-  /*background-position: center;*/
-  /*margin-right: 10px;
-  height: 123px;*/
-}
-
-
-.gallery-cell-10{
+.gallery-cell-11{
   padding: 250px;
   background-image: url('shopping.jpg');
   background-size: cover;
@@ -133,7 +133,7 @@ http://flickity.metafizzy.co
   height: 123px;
 }
 
-/*.gallery-cell-12{
+.gallery-cell-12{
   padding: 250px;
   background-image: url('shopping.jpg');
   background-size: cover;
@@ -141,9 +141,9 @@ http://flickity.metafizzy.co
   height: 160px;
 
   /*background-position: center;*/
-  /*margin-right: 10px;
-  height: 123px;*/
-}*/
+  margin-right: 10px;
+  height: 123px;
+}
 
 
 

@@ -16,12 +16,12 @@ csv_text = File.read('Neighborhood_Zri_AllHomes.csv')
 
 
     Profile.create([
-      {name:"Angela", bio:"Angela lives in the Adams Morgan neighborhood. She makes $51,000 a year."},
-      {name:"Michael", bio:"Michael lives in the Anacostia neighborhood.  He make $27,000 a year."},
-      {name:"John", bio:"John lives in the Petworth neighborhood.  He makes $38,000 a year."},
-      {name:"Jorge", bio:"Jorge lives in the Noma neighborhood.  He makes $61,000 a year."},
-      {name:"Kim", bio:"Kim lives in the Takoma neighborhood.  She makes $49,000 a year."},
-      {name:"Rosa", bio:"Rosa lives in the Brentwood neighborhood.  She makes $52,000 a year."},
-      {name:"Dave", bio:"Dave lives in the Friendship Heights neighborhood.  He makes $36,000 a year."},
-      {name:"Mel", bio:" lives in the Benning Heights neighborhood.  She makes $29,000a year."}
+      {name:"Angela", photo_url:"angela.jpg", bio: "Angela lives in the Adams Morgan neighborhood. \"I recently moved from Philadelphia, so having an app that gave me some insight into DCs living costs was helpful.  Where Wallet was quick and very easy to use.\""},
+      {name:"Faz", photo_url:"faz.png", bio:"Faz lives in the Dupont Circle neighborhood.  \"Thanks to Where Wallet, I found an apartment in a neighborhood that fits me perfectly!\""},
+      {name:"John", photo_url:"john.jpg", bio:"John lives in the Petworth neighborhood.  \"Where Wallet makes finding an apartment effortless! All I have to do is call the movers!\""},
+      {name:"Raul", photo_url:"raul.jpg", bio:"Raul lives in the Noma neighborhood.  \"Before, finding information about a neighborhood was tedious and time consuming.  Now, no gimicks.  No tricks.  Just Where Wallet.\""},
+      {name:"Kim", photo_url:"kim.jpg", bio:"Kim lives in the Takoma neighborhood.  \"This app takes all the financial information I care about, and makes it easy to understand.\""},
+      {name:"Seema", photo_url:"seema.jpg", bio:"Seema lives in the Logan Circle neighborhood.  \"I thought relocating from a different city would be stressful, but Where Wallet made the process significantly more pleasant.\""},
+      {name:"Dave", photo_url:"dave.jpg", bio:"Dave lives in the Friendship Heights neighborhood.  \"Easy and fun.  Whether you're a DC native or a newcomer to the area, if you're looking to relocate, Where Wallet makes finding a place to live straightforward.\""},
+      {name:"Melanie", photo_url:"melanie.jpg", bio:"Mel lives in the Benning Heights neighborhood.  \"In a transient city like DC, finding a place to live can be tricky.  Where Wallet is the perfect tool for those looking to make a change.\""}
       ])

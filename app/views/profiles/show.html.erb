@@ -1,7 +1,13 @@
 <h1>Meet <%=@profile.name%>!</h1>
-<div class="summary">
-<%=@profile.bio%>
+
+<div class="pic">
+  <%=image_tag @profile.photo_url%>
 </div>
+
+<div class="summary">
+  <%=@profile.bio%>
+</div>
+
 <p><small><%= link_to "See another", @next_profile %></small></p>
 
 <h3 class="start"><%= link_to "Now it's your turn", new_form_path %></h3>
