@@ -88,13 +88,11 @@ class FormsController < ApplicationController
         :groceries,
         :cabs,
         :recreation,
-        :shopping#,
-        # :random_path
+        :shopping
       )
     end
 
     def find_form
-      # @form = Form.find_by_slug!(params[:id])
       @form = Form.find(params[:id])
     end
 

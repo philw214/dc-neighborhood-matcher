@@ -100,3 +100,32 @@ input[type=number]{
 #chart-1{
   background-color: $white;
 }
+
+.results{
+
+  padding: 1em 3em 1em 3em;
+
+  h1{
+    margin-top: 1em;
+    text-align: center;
+  }
+
+  a, 
+  a:visited{
+    text-decoration: none;
+    color: $green;
+  }
+
+}
+
+.congrats{
+  color: $green;
+}
+
+.money{
+  color: $blue;
+}
+
+.overspend{
+  color: $red; 
+}

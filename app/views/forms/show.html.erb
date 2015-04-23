@@ -2,23 +2,31 @@
 <header>
 <%= link_to image_tag("logo_small_white.svg", :alt => "WhereWallet logo"), root_path %>
 </header>
+<div class="results">
 <h1>Your results</h1>
-<h3>Your adjusted income is $<%= @tax_income %></h3>
-<p><h3>You want to live in <%= @neighborhood['name'] %> and it will cost you $<%= @housing_cost %></h3></p>  
+<h3>Based on your income, your after-tax income will be: <span class="money"><%= number_to_currency(@tax_income, precision: 0) %></span>.</h3>
+<% if @total_cost >= @tax_income %>
+  <h3>But it will cost you <span class="overspend"><%= number_to_currency(@total_cost, precision: 0) %></span> to live the way you want.</h3>
+<% else %> 
+  <h3><span class="congrats">That's a great budget.</span>To live the way you envision, it will cost you <span class="money"><%= number_to_currency(@total_cost, precision: 0) %></span>.</h3>
+<% end %> 
+<p><h3>You want to live in <%= @neighborhood['name'] %> and it will cost you <span class="money"><%= number_to_currency(@housing_cost, precision: 0) %></span>.</h3></p>  
 
-<h3>You spend $<%= @dining_cost %> on dining out in a year</h3>
-<p><h3>You spend $<%= @grocery_cost %> on groceries</h3></p>
-<p><h3>You spend $<%= @transportation_cost %> on public transportation a year</h3></p>
-<p><h3> You are spending $ <%= @driving_cost %> when you are driving</h3></p>
-<p><h3>You are planning to save $ <%= @personal_savings %></h3></p>
-<p><h3>Your cab costs are $ <%= @cabs_cost%> a year</h3></p>
-<p><h3>Your healthcare payment is $ <%= @healthcare_cost %></h3></p>
-<p><h3>You spend $ <%= @recreation_cost %> on recreational costs</h3></p>
-<p><h3>Your shopping costs are $ <%= @shopping_cost %></h3></p>
-<p><h3>Your total spending would be $ <%= @total_cost %> in DC</h3></p>
-<p><h3>You have $ <%= @remainder %> left in your account</h3></p>
+<h3>You spend <span class="money"><%= number_to_currency(@dining_cost, precision: 0) %></span> on dining out in a year.</h3>
+<p><h3>You spend <span class="money"><%= number_to_currency(@grocery_cost, precision: 0) %></span> on groceries.</h3></p>
+<p><h3>You spend <span class="money"><%= number_to_currency(@transportation_cost, precision: 0) %></span> on public transportation a year.</h3></p>
+<p><h3> You are spending  <span class="money"><%= number_to_currency(@driving_cost, precision: 0) %></span> when you are driving.</h3></p>
+<p><h3>You are planning to save  <span class="money"><%= number_to_currency(@personal_savings, precision: 0) %></span>.</h3></p>
+<p><h3>Your cab costs are  <span class="money"><%= number_to_currency(@cabs_cost, precision: 0)%></span> a year.</h3></p>
+<p><h3>Your healthcare payment is  <span class="money"><%= number_to_currency(@healthcare_cost, precision: 0) %></span>.</h3></p>
+<p><h3>You spend  <span class="money"><%= number_to_currency(@recreation_cost, precision: 0) %></span> on recreational costs.</h3></p>
+<p><h3>Your shopping costs are  <span class="money"><%= number_to_currency(@shopping_cost, precision: 0) %></span>.</h3></p>
+<p><h3>Your total spending would be  <span class="money"><%= number_to_currency(@total_cost, precision: 0) %></span> in <%= @neighborhood["name"]%>.</h3></p>
+<p><h3>You have <span class="money"><%= number_to_currency(@remainder, precision: 0) %></span> left in your account.</h3></p>
 
+<h1>Your Spending</h1>
 <%= pie_chart [
+  ["Housing", @housing_cost],
   ["Dining Out", @dining_cost],
   ["Groceries", @grocery_cost], 
   ["Mass transit", @transportation_cost], 
@@ -46,7 +54,7 @@
   <h2><%= link_to "Go back", destroy_user_session_path %></h2>
 <% end %> 
 </h3>
-
+</div>
 
 
 
