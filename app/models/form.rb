@@ -92,7 +92,7 @@ class Form < ActiveRecord::Base
 
 
   def tax_income (income)
-    adjusted_income = income - (income *0.0895) #dc income tax is 8.95%
+    adjusted_income = income - (income * 0.25) #dc income tax is 8.95%
     @tax_income = adjusted_income
     return @tax_income
   end

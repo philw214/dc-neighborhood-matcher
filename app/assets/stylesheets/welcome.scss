@@ -133,11 +133,11 @@ a:visited{
   font-weight: 700;
 }
 
-.profile{
-  border-radius: 50%;
-  border: 3px solid $green; 
+.profile img{
   height: 100px;
-  width: 100px;
+  weight: 100px;
+  border: 3px solid $green;
+  border-radius: 50%;
 }
 
 .fa-share{

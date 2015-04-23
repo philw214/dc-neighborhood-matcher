@@ -9,7 +9,7 @@
 <% if @total_cost >= @tax_income %>
   <h3>But it will cost you <span class="overspend"><%= number_to_currency(@total_cost, precision: 0) %></span> to live the way you want.</h3>
 <% else %>
-  <h3><span class="congrats">That's a great budget.</span>To live the way you envision, it will cost you <span class="money"><%= number_to_currency(@total_cost, precision: 0) %></span>.</h3>
+  <h3><span class="congrats">That's a great budget. </span>To live the way you envision, it will cost you <span class="money"><%= number_to_currency(@total_cost, precision: 0) %></span>.</h3>
 <% end %>
 <p><h3>You want to live in <%= @neighborhood['name'] %> and it will cost you <span class="money"><%= number_to_currency(@housing_cost, precision: 0) %></span>.</h3></p>
 

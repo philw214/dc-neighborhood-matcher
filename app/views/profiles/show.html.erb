@@ -1,13 +1,30 @@
-<h1>Meet <%=@profile.name%>!</h1>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<header>
+<%= link_to image_tag("logo_small_white.svg", :alt => "WhereWallet logo"), root_path %>
+</header>
+<div class="person">
+  <h1>Meet <%=@profile.name%>!</h1>
 
-<div class="pic">
-  <%=image_tag @profile.photo_url%>
+  <div class="pic">
+    <%=image_tag @profile.photo_url%>
+  </div>
+
+  <div class="summary">
+    <%=@profile.bio%>
+  </div>
+
+  <h1><%=@profile.name%>'s Spending</h1>
+  <%= pie_chart [
+    ["Housing", Random.rand(12_000..36_000)],
+    ["Dining Out", Random.rand(1000..7000)],
+    ["Groceries", Random.rand(2000..5000)],
+    ["Mass transit", Random.rand(1000..5000)],
+    ["Savings", Random.rand(0..20000)],
+    ["Cabs", Random.rand(0..2000)],
+    ["Healthcare", Random.rand(2000..8000)]
+  ]
+  %>
+
+  <h3 class="start"><%= link_to "Now it's your turn", new_form_path %></h3>
+  <p><small><%= link_to "See another", @next_profile %></small></p>
 </div>
-
-<div class="summary">
-  <%=@profile.bio%>
-</div>
-
-<p><small><%= link_to "See another", @next_profile %></small></p>
-
-<h3 class="start"><%= link_to "Now it's your turn", new_form_path %></h3>
