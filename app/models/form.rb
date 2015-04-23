@@ -92,7 +92,7 @@ class Form < ActiveRecord::Base
 
 
   def tax_income (income)
-    adjusted_income = income - (income *0.0895) #dc income tax is 8.95%
+    adjusted_income = income - (income * 0.25) #dc income tax is 8.95%
     @tax_income = adjusted_income
     return @tax_income
   end
@@ -103,9 +103,9 @@ class Form < ActiveRecord::Base
     high_cost = 30
 
     @dining_cost = 52 *
-      low_cost * low_meals +
-      medium_cost * medium_meals + 
-      high_cost * high_meals
+      ((low_cost * low_meals) +
+      (medium_cost * medium_meals) + 
+      (high_cost * high_meals))
 
     return @dining_cost
   end
@@ -133,7 +133,7 @@ class Form < ActiveRecord::Base
   end
 
   def cabs_cost(cabs)
-    cab_transit = 10 * cabs
+    cab_transit = 10 * cabs * 52
     @cabs_cost = cab_transit 
     return @cabs_cost
   end

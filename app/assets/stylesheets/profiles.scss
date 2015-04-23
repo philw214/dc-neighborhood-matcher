@@ -1,0 +1,33 @@
+/* USA Today Colors */ 
+$white: #f8f8f8;
+$blue: #009BFF;
+$green: #00A53C;
+$red: #eb1e00;
+$purple: #9600b4;
+$light-blue: #00c3c3;
+$orange: #fa5f00;
+$yellow: #ffcc00;
+$gray: #939598;
+$font-stack: 'Open Sans', Helvetica,Arial,Verdana,sans-serif;
+
+/* Our colors */
+$dark-gray: #363636;
+
+.person{
+  padding: 2em;
+}
+
+.summary{
+  margin-bottom: 2em; 
+}
+
+p a, 
+p a:visited{
+  color: $dark-gray;
+  border: 2px solid $green;
+  padding: 0.5em;
+}
+
+h3{
+  margin: 2em 2em 2em 0;
+}
