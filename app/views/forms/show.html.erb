@@ -1,4 +1,4 @@
-
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <h2>Your results</h2>
 <h3>Your adjusted income is $<%= @tax_income %></h3>
 <p><h3>You want to live in <%= @neighborhood['name'] %> and it will cost you $<%= @housing_cost %></h3></p>  
@@ -6,6 +6,7 @@
 <h3>You spend $<%= @dining_cost %> on dining out in a year</h3>
 <p><h3>You spend $<%= @grocery_cost %> on groceries</h3></p>
 <p><h3>You spend $<%= @transportation_cost %> on public transportation a year</h3></p>
+
 <p><h3> You are spending $ <%= @driving_cost %> when you are driving</h3></p>
 <p><h3>You are planning to save $ <%= @personal_savings %></h3></p>
 <p><h3>Your cab costs are $ <%= @cabs_cost%> a year</h3></p>
@@ -16,6 +17,9 @@
 <p><h3>You have $ <%= @remainder %> left in your account</h3></p>
 
 <% if @tax_income >= @total_cost %>
+<%= pie_chart [["Groceries", @grocery_cost], ["Dining Out", @dining_cost]] %>
+<% if @total_cost >= @tax_income %>
+
   <h2>More expensive than you thought?</h2>
   <%= link_to "Adjust your budget", edit_form_path(@form) %> 
 <% else %> 
