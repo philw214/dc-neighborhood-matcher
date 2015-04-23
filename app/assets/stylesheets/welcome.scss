@@ -35,11 +35,12 @@ html {
  }
 
 body {
-  background: #f8f8f8;
+  background-color: #f8f8f8;
   color: $dark-gray;
   line-height: 1.25em;
   font-size: 1.5em;
   margin: 0;
+  background-image: url('map.jpg');
 }
 
 header{
@@ -90,8 +91,8 @@ h1{
 
 
 h2{
-  font-size: 36px;
-  margin: 1em auto;
+  font-size: 1.3em;
+  margin: 0 0 2em 0;
   padding: 5px 0 5px 0;
   font-family: $font-stack;
 }
@@ -103,8 +104,8 @@ a:visited{
 }
 
 .main_logo{
-  height: 200px;
-  width: 400px;
+  height: 400px;
+  width: 800px;
 }
 
 .start a{
@@ -115,6 +116,7 @@ a:visited{
   height: 100px;
   margin: 1em auto;
   text-decoration: none;
+  font-weight: 700;
 }
 
 .start a:hover{
@@ -127,6 +129,8 @@ a:visited{
   text-align: center;
   margin: 1em auto;
   padding: 1em 1em 1em 1em;
+  font-size: 0.85em;
+  font-weight: 700;
 }
 
 .profile{
@@ -136,7 +140,12 @@ a:visited{
   width: 100px;
 }
 
-h2{
-  font-size: 1.3em;
+.fa-share{
+  -ms-transform: rotate(130deg);
+  -webkit-transform: rotate(130deg); 
+  transform: rotate(130deg);
+  font-size: 3em;
+  // padding-left: 0;
+  padding-bottom: 1em;
 }
 
