@@ -11,7 +11,7 @@
 <p><h3>Your total spending is $<%= @total_cost %></h3></p>
 <p>Your healthcare payment is $ <%= @healthcare_cost %></p>
 
-<% if @tax_income >= @total_cost %>
+<% if @total_cost >= @tax_income %>
   <h2>More expensive than you thought?</h2>
   <%= link_to "Adjust your budget", edit_form_path(@form) %> 
 <% else %> 

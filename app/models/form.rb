@@ -100,7 +100,7 @@ class Form < ActiveRecord::Base
     gas = 2.50
     driving = driving_trips * car_trip_duration * 2.50
     @driving_cost = driving
-    return = @driving_cost
+    return @driving_cost
   end # this method is not complete yet
 
 
