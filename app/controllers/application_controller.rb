@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  def after_sign_in_path_for(user)
+    @form = Form.find_by(user_id: user)
+    return @form
+  end
+
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
     if current_user
