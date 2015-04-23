@@ -2,7 +2,7 @@
 http://flickity.metafizzy.co
 ---------------------------------------------- */
 .gallery-cell-1{
-  padding: 250px;
+  padding: 200px 0 300px 0;
   background-image: url('income.jpg');
   background-size: cover;
   width: 100%;
@@ -10,11 +10,11 @@ http://flickity.metafizzy.co
 
   background-position: center;*/
   margin-right: 10px;
-  height: 123px;
+  height: 180px;
 }
 
 .gallery-cell-2{
-  padding: 250px;
+  padding: 150px 0 350px 0;
   background-image: url('neighborhood.jpg');
   background-size: cover;
   width: 100%;
@@ -22,11 +22,11 @@ http://flickity.metafizzy.co
 
   /*background-position: center;*/
   margin-right: 10px;
-  height: 123px;
+  height: 180px;
 }
 
 .gallery-cell-3{
-  padding: 250px;
+  padding: 200px 0 300px 0;
   background-image: url('saving.jpg');
   background-size: cover;
   width: 100%;
@@ -34,10 +34,10 @@ http://flickity.metafizzy.co
 
   /*background-position: center;*/
   margin-right: 10px;
-  height: 123px;
+  height: 180px;
 }
 .gallery-cell-4{
-  padding: 250px;
+  padding: 200px 0 300px 0;
   background-image: url('healthcare.jpg');
   background-size: cover;
   width: 100%;
@@ -45,12 +45,12 @@ http://flickity.metafizzy.co
 
   /*background-position: center;*/
   margin-right: 10px;
-  height: 123px;
+  height: 180px;
 }
 
 
 .gallery-cell-5{
-  padding: 250px;
+  padding: 120px 0 380px 0;
   background-image: url('dining.jpg');
   background-size: cover;
   width: 100%;
@@ -58,23 +58,23 @@ http://flickity.metafizzy.co
 
   /*background-position: center;*/
   margin-right: 10px;
-  height: 123px;
+  height: 180px;
 }
 
-.gallery-cell-6{
-  padding: 250px;
+/*.gallery-cell-6{
+  padding: 200px 0 300px 0;
   background-image: url('cabs.jpg');
   background-size: cover;
   width: 100%;
-  height: 160px;
+  height: 160px;*/
 
   /*background-position: center;*/
-  margin-right: 10px;
-  height: 123px;
+/*  margin-right: 10px;
+  height: 180px;
 }
-
-.gallery-cell-7{
-  padding: 250px;
+*/
+.gallery-cell-6{
+  padding: 150px 0 350px 0;
   background-image: url('driving.jpg');
   background-size: cover;
   width: 100%;
@@ -82,10 +82,10 @@ http://flickity.metafizzy.co
 
   /*background-position: center;*/
   margin-right: 10px;
-  height: 123px;
+  height: 180px;
 }
-.gallery-cell-8{
-  padding: 250px;
+.gallery-cell-7{
+  padding: 150px 0 350px 0;
   background-image: url('metro_1024.png');
   background-size: cover;
   width: 100%;
@@ -93,12 +93,12 @@ http://flickity.metafizzy.co
 
   /*background-position: center;*/
   margin-right: 10px;
-  height: 123px;
+  height: 180px;
 }
 
 
-.gallery-cell-9{
-  padding: 250px;
+.gallery-cell-8{
+  padding: 200px 0 300px 0;
   background-image: url('recreation.jpg');
   background-size: cover;
   width: 100%;
@@ -106,23 +106,23 @@ http://flickity.metafizzy.co
 
   /*background-position: center;*/
   margin-right: 10px;
-  height: 123px;
+  height: 180px;
 }
-/*.gallery-cell-9{
-  padding: 250px;
+/*.gallery-cell-7{
+  padding: 200px 0 300px 0;
   background-image: url('gym.jpg');
   background-size: cover;
   width: 100%;
-  height: 160px;
+  height: 160px;*/
 
   /*background-position: center;*/
   /*margin-right: 10px;
-  height: 123px;*/
-}
+  height: 180px;
+}*/
 
 
-.gallery-cell-10{
-  padding: 250px;
+.gallery-cell-9{
+  padding: 200px 0 300px 0;
   background-image: url('shopping.jpg');
   background-size: cover;
   width: 100%;
@@ -130,39 +130,20 @@ http://flickity.metafizzy.co
 
   /*background-position: center;*/
   margin-right: 10px;
-  height: 123px;
+  height: 180px;
 }
 
-/*.gallery-cell-12{
-  padding: 250px;
-  background-image: url('shopping.jpg');
+.gallery-cell-10{
+  padding: 250px 0 250px 0;
+  /*background-image: url('logo.svg');*/
   background-size: cover;
   width: 100%;
   height: 160px;
 
   /*background-position: center;*/
-  /*margin-right: 10px;
-  height: 123px;*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  margin-right: 10px;
+  height: 180px;
+}
 
 
 

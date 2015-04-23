@@ -1,5 +1,8 @@
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-<h2>Your results</h2>
+<header>
+<%= link_to image_tag("logo_small_white.svg", :alt => "WhereWallet logo"), root_path %>
+</header>
+<h1>Your results</h1>
 <h3>Your adjusted income is $<%= @tax_income %></h3>
 <p><h3>You want to live in <%= @neighborhood['name'] %> and it will cost you $<%= @housing_cost %></h3></p>  
 

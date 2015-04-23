@@ -5,6 +5,7 @@ gem 'devise'
 gem 'pry'
 gem 'friendly_id'
 gem 'chartkick'
+gem 'jquery-turbolinks'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record

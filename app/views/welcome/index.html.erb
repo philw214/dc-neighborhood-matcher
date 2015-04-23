@@ -1,6 +1,14 @@
-<h1>Budget Your Life Story</h1>
-<h2>A tool to help you find out how to live the life you want</h2>
-<h3 class="start"><%= link_to "Start", new_form_path %></h3>
-<p><small>Unconvinced? Take a look at <%= link_to "one of our example profiles", @profile %></small></p>
-<p><%= link_to "Log in", new_user_session_path %></p>
-
+<header>
+  <ul>
+    <li><%= link_to image_tag("logo_small_white.svg", :alt => "WhereWallet logo"), root_path %></li>
+    <li><%= link_to "Sign in", new_user_session_path %></li>
+  </ul>
+</header>
+<div class="intro">
+<%= image_tag "logo.svg", :alt => "WhereWallet logo", :class => "main_logo" %> 
+<h1>Live the life you want, where you want.</h1>
+<h2 class="start"><%= link_to "Start", new_form_path %></h2>
+<p class="bios"><small>Unconvinced? Take a look at one of our example profiles.</small></p>
+<%= link_to image_tag("logo_small_white.svg", :alt => "An example profile", :class => "profile"), @profile %>
+</div>
+<!-- Circles with links to profiles -->

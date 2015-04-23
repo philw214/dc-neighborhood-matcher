@@ -1,0 +1,142 @@
+// *
+// {
+//     margin:0;
+//     border:0;
+//     padding:0;
+//     border-collapse:collapse;
+//     border-spacing:0;
+//     font-weight:inherit;
+//     font-size:inherit;
+//     font-style:inherit;
+//     color:inherit;
+//     background-color:transparent;
+//     box-sizing:border-box;
+//     font-family:inherit;
+// }
+
+/* USA Today Colors */ 
+$white: #f8f8f8;
+$blue: #009BFF;
+$green: #00A53C;
+$red: #eb1e00;
+$purple: #9600b4;
+$light-blue: #00c3c3;
+$orange: #fa5f00;
+$yellow: #ffcc00;
+$gray: #939598;
+$font-stack: 'Open Sans', Helvetica,Arial,Verdana,sans-serif;
+
+/* Our colors */
+$dark-gray: #363636;
+
+html {
+  font-family: $font-stack;
+  background-size: cover;
+ }
+
+body {
+  background: #f8f8f8;
+  color: $dark-gray;
+  line-height: 1.25em;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+header{
+  background-color: $dark-gray;
+}
+
+
+header img{
+  height: 75px;
+  width: 150px;
+}
+
+header ul{
+  display: inline-block;
+  list-style-type: none;
+  width: 100%;
+  margin: 0;
+  padding-left: 0;
+}
+
+li{
+  display: inline-block;
+}
+
+header li:first-of-type{
+  text-align: left;
+  height: 75px;
+  padding-left:0;
+}
+
+header li:last-of-type{
+  text-align: right;
+  float: right;
+  // height: 150px;
+  margin-right: 1em;
+  padding: 25px 0 25px 0;
+}
+
+.intro{
+  text-align: center;
+}
+
+h1{
+  font-size: 48px;
+  color: $dark-gray;
+  margin: 0 0.25em 1.5em 0.25em;
+}
+
+
+h2{
+  font-size: 36px;
+  margin: 1em auto;
+  padding: 5px 0 5px 0;
+  font-family: $font-stack;
+}
+
+a, 
+a:visited{
+  text-decoration: none;
+  color: $white;
+}
+
+.main_logo{
+  height: 200px;
+  width: 400px;
+}
+
+.start a{
+  background: $green;
+  color: $white;
+  width: 80%;
+  padding: 30px;
+  height: 100px;
+  margin: 1em auto;
+  text-decoration: none;
+}
+
+.start a:hover{
+  color: $green;
+  background: $white;
+  border: 10px solid $green; 
+}
+
+.bios{
+  text-align: center;
+  margin: 1em auto;
+  padding: 1em 1em 1em 1em;
+}
+
+.profile{
+  border-radius: 50%;
+  border: 3px solid $green; 
+  height: 100px;
+  width: 100px;
+}
+
+h2{
+  font-size: 1.3em;
+}
+
