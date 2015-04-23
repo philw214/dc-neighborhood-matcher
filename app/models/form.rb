@@ -103,9 +103,9 @@ class Form < ActiveRecord::Base
     high_cost = 30
 
     @dining_cost = 52 *
-      (low_cost * low_meals) +
+      ((low_cost * low_meals) +
       (medium_cost * medium_meals) + 
-      (high_cost * high_meals)
+      (high_cost * high_meals))
 
     return @dining_cost
   end
