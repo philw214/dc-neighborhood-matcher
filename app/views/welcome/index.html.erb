@@ -10,6 +10,6 @@
 <h2 class="start"><%= link_to "Start", new_form_path %></h2>
 <p class="bios"><small>Not convinced? Check out these awesome testimonials.<i class="fa fa-share"></i></small></p>
 <% @profiles.each do |profile| %> 
-  <%= link_to image_tag(profile["photo_url"]), profile, :class => "profile", :alt => "An example profile" %>  
+  <%= link_to image_tag(profile["photo_url"]), profile, :class => "profile"%>  
 <% end %> 
 </div>
