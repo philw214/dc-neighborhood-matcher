@@ -17,8 +17,8 @@ class FormsController < ApplicationController
     @cabs_cost = @form.cabs_cost(@form['cabs'])
     @transportation_cost = @form.transportation_cost(@form['mass_transit_trips'])
     @driving_cost = @form.driving_cost(@form['driving_trips'], @form['car_trip_duration'])
-    @recreation_cost = @form['recreation']
-    @shopping_cost = @form['shopping']
+    @recreation_cost = @form['recreation'] * 52
+    @shopping_cost = @form['shopping'] * 52
     @total_cost = @housing_cost + @healthcare_cost + @dining_cost + @grocery_cost + @transportation_cost + @cabs_cost + @driving_cost + @recreation_cost +@shopping_cost - @personal_savings
     @remainder = @tax_income - @total_cost
     @user = current_or_guest_user
