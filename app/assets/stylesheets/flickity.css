@@ -3,7 +3,7 @@ http://flickity.metafizzy.co
 ---------------------------------------------- */
 .gallery-cell-1{
   padding: 200px 0 300px 0;
-  background-image: url('income.jpg');
+  background: image-url('income.jpg');
   background-size: cover;
   width: 100%;
   height: 160px;
