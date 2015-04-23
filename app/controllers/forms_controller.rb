@@ -43,6 +43,10 @@ class FormsController < ApplicationController
   def create
     @user = current_or_guest_user
     @form = @user.forms.new(forms_params) # Maybe make form id some SHA?
+    @neighborhoods = Neighborhood.where(state: "DC").order(:name)
+    @bedroom_options = @form.bedroom_options
+    @health_options = @form.healthcare_options
+    @form.only_three_meals_a_day
     if @form.save
       @form.update(neighborhood_id: params[:neighborhood], groceries: @groceries)
       # @user.update(form_id: @form.id)

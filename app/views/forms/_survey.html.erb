@@ -3,11 +3,15 @@
 </header>
 
 <% if @form.errors.any? %>
-  <ul>
-  <% @form.errors.full_messages.each do |error| %>
-    <li> <%= error %> </li>
+  <div class="errors">
+  <% @form.errors.each do |attribute, message| %>
+    <% if attribute == :dining_out_low %> 
+      <p><%= message %></p>
+    <% else %> 
+      <p> <%= "#{attribute.capitalize} #{message}." %> </p>
+    <% end %> 
   <% end %>
-  </ul>
+  </div>
 <% end %>
 
 <%= form_for @form do |f| %>
