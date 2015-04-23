@@ -1,10 +1,17 @@
-<div class="wrapper">
+<header>
+<%= link_to image_tag("logo_small_white.svg", :alt => "WhereWallet logo"), root_path %>
+</header>
+
 <% if @form.errors.any? %>
-  <ul>
-  <% @form.errors.full_messages.each do |error| %>
-    <li> <%= error %> </li>
+  <div class="errors">
+  <% @form.errors.each do |attribute, message| %>
+    <% if attribute == :dining_out_low %> 
+      <p><%= message %></p>
+    <% else %> 
+      <p> <%= "#{attribute.capitalize} #{message}." %> </p>
+    <% end %> 
   <% end %>
-  </ul>
+  </div>
 <% end %>
 
 <%= form_for @form do |f| %>
@@ -12,100 +19,106 @@
 <div class="gallery js-flickity">
 
   <div class="gallery-cell-1">
-    <div name="income_question" class="category">
+    <div class="category">
       <h2>What is your individual annual income?</h2>
       <%= f.number_field :income, :placeholder => "$$$"%>
-      <a href="#neighborhood_question">Next</a>
     </div>
   </div>
 
   <div class="gallery-cell-2">
-    <div name="neighborhood_question" class="category">
+    <div class="category">
       <h2>Where would you like to live?</h2>
+      <div class="dropdown">
       <%= select_tag "neighborhood", options_for_select(@neighborhoods.collect {|n| [n["name"], n.id]}) %>
+      </div>
       <h2>How many bedrooms would you like?</h2>
+      <div class="dropdown">
       <%= f.select :bedrooms, options_for_select(@bedroom_options) %>
-      <a href="#savings_question">Next</a>
+      </div>
     </div>
   </div>
 
 
   <div class="gallery-cell-3">
-    <div class="category" name="savings_question">
+    <div class="category">
       <h2>How much do you plan on setting aside for personal savings and retirement?</h2>
       <%= f.number_field :savings, :placeholder => "$$$" %>
-      <a href="#health_question">Next</a>
     </div>
   </div>
 
 
   <div class="gallery-cell-4">
-    <div class="category" name="health_question">
-      <h2>What kind of health insurance plan will you have</h2>
-      <!-- Convert to buttons -->
+    <div class="category">
+      <h2>What kind of health insurance plan will you have?</h2>
+      <div class="dropdown">
       <%= f.select :healthcare, options_for_select(@health_options)%>
-      <a href="#food_question">Next</a>
+      </div>
     </div>
   </div>
 
   <div class="gallery-cell-5">
-    <div class="category" name="food_question">
+    <div class="category">
       <h2>How often will you dine out per week?</h2>
       <%= f.label :dining_out_low, "$" %>
+      <div class="dropdown number">
       <%= f.select :dining_out_low, options_for_select(0..21) %>
+      </div>
       <%= f.label :dining_out_medium, "$$" %>
+      <div class="dropdown number">
       <%= f.select :dining_out_medium, options_for_select(0..21) %>
+      </div>
       <%= f.label :dining_out_high, "$$$" %>
+      <div class="dropdown number">
       <%= f.select :dining_out_high, options_for_select(0..21) %>
-      <a href="#car_question">Next</a>
+      </div>
     </div>
   </div>
 
   <div class="gallery-cell-6">
-    <div class="category" name="car_question">
-      <h2>Do you own a car?</h2>
-      <a href="#mass_transit_questions">No</a>
-      <a href="#driving_questions">Yes</a>
+    <div class="category">
+      <h2>How many times a week will you drive?</h2>
+      <div class="dropdown number">
+      <%= f.select :driving_trips, options_for_select(0..25) %>
+      </div>
+      <h2>Average time per trip?</h2>
+      <div class="dropdown number">
+      <%= f.select :car_trip_duration, options_for_select(0..60) %>
+      </div>
     </div>
   </div>
 
   <div class="gallery-cell-7">
-    <div class="category" name="driving_questions">
-      <h2>How many times a week will you drive?</h2>
-      <%= f.select :driving_trips, options_for_select(0..25) %>
-      <h2>Average time per trip?</h2>
-      <%= f.select :car_trip_duration, options_for_select(0..25) %>
-      <a href="#mass_transit_questions">Next</a>
+    <div class="category">
+      <h2>How many trips per week will you take on mass transit?</h2>
+      <div class="dropdown number">
+      <%= f.select :mass_transit_trips, options_for_select(0..25) %>
+      </div>
+      <h2>How many trips per week will you take using a taxi, Lyft, Uber, etc.?</h2>
+      <div class="dropdown number">
+      <%= f.select :cabs, options_for_select(0..25) %>
+      </div>
     </div>
   </div>
 
   <div class="gallery-cell-8">
-    <div class="category" name="mass_transit_questions">
-      <h2>How many trips per week will you take on mass transit?</h2>
-      <%= f.select :mass_transit_trips, options_for_select(0..25) %>
-      <h2>How many trips per week will you take using a taxi, Lyft, Uber, etc.?</h2>
-      <%= f.select :cabs, options_for_select(0..25) %>
-      <a href="#recreation_question">Next</a>
+    <div class="category">
+      <h2>How much per week will you spend on recreation?</h2>
+      <h4>Experiences that you pay for, e.g. gym, movies, spa visits, concerts, etc.</h4>
+      <%= f.number_field :recreation, :placeholder => "$$$" %>
     </div>
   </div>
 
   <div class="gallery-cell-9">
-    <div class="category" name="recreation_question">
-      <h2>How much per week will you spend on recreation?</h2>
-        <h4>Experiences that you pay for, e.g. gym, movies, spa visits, concerts, etc.</h4>
-          <%= f.number_field :recreation, :placeholder => "$$$" %>
-          <h2>How much per week will you spend on shopping?</h2>
-          <h4>i.e. tangible items (but not groceries)</h4>
-        <%= f.number_field :shopping, :placeholder => "$$$" %>
-        <a href="#finish">Next</a>
-      </div>
-  </div>
-
-  <div class="gallery-cell-10">
-    <div class="category" name="finish">
-      <%= f.submit "Get feedback" %>
+    <div class="category">
+      <h2>How much per week will you spend on shopping?</h2>
+      <h4>i.e. tangible items (but not groceries)</h4>
+      <%= f.number_field :shopping, :placeholder => "$$$" %>
     </div>
   </div>
 
-</div>
+  <div class="gallery-cell-10">
+    <div class="category">
+      <%= f.submit "Get feedback", :class => "submit" %>
+    </div>
+  </div>
 <% end %>

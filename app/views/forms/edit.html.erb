@@ -1,89 +1,123 @@
-<h2>Make some changes</h2>
-<div class="wrapper">
-<% if @form.errors.any? %> 
-  <ul>
-  <% @form.errors.full_messages.each do |error| %> 
-    <li> <%= error %> </li>
-  <% end %> 
-  </ul>
+<header>
+<%= link_to image_tag("logo_small_white.svg", :alt => "WhereWallet logo"), root_path %>
+</header>
+
+<% if @form.errors.any? %>
+  <div class="errors">
+  <% @form.errors.each do |attribute, message| %>
+    <% if attribute == :dining_out_low %> 
+      <p><%= message %></p>
+    <% else %> 
+      <p> <%= "#{attribute.capitalize} #{message}." %> </p>
+    <% end %> 
+  <% end %>
+  </div>
 <% end %>
 
-<%= form_for @form do |f| %> 
+<%= form_for @form do |f| %>
 
-  <div name="income_question" class="category"> 
-  <h2>What is your individual annual income?</h2>
-  <%= f.range_field :income, :in => 0..500_000, :step => '1000' %>
-  <a href="#neighborhood_question">Next</a> 
+<div class="gallery js-flickity">
+
+  <div class="gallery-cell-1">
+    <div class="category">
+      <h2>What is your individual annual income?</h2>
+      <%= f.number_field :income, :placeholder => "$$$"%>
+    </div>
   </div>
 
-  <div name="neighborhood_question" class="category">
-  <h2>Where would you like to live?</h2>
-  <%= select_tag "neighborhood", options_for_select(@neighborhoods.collect {|n| [n["name"], n.id]}, selected: @neighborhood["id"]) %>
-  <h2>How many bedrooms would you like?</h2>
-  <%= f.select :bedrooms, options_for_select(@bedroom_options) %> 
-  <a href="#savings_question">Next</a>
+  <div class="gallery-cell-2">
+    <div class="category">
+      <h2>Where would you like to live?</h2>
+      <div class="dropdown">
+      <%= select_tag "neighborhood", options_for_select(@neighborhoods.collect {|n| [n["name"], n.id]}, selected: @neighborhood["id"]) %>
+      </div>
+      <h2>How many bedrooms would you like?</h2>
+      <div class="dropdown">
+      <%= f.select :bedrooms, options_for_select(@bedroom_options) %>
+      </div>
+    </div>
   </div>
 
-  <div class="category" name="savings_question">
-  <h2>How much do you plan on setting aside for personal savings and retirement?</h2>
-  <%= f.range_field :savings, :in => 0..500_000, :step => 1000, :value => 0 %> 
-  <a href="#health_question">Next</a>
+  <div class="gallery-cell-3">
+    <div class="category">
+      <h2>How much do you plan on setting aside for personal savings and retirement?</h2>
+      <%= f.number_field :savings, :placeholder => "$$$" %>
+    </div>
   </div>
 
-  <div class="category" name="health_question"> 
-  <h2>What kind of health insurance plan will you have</h2>
-  <!-- Convert to buttons -->
-  <%= f.select :healthcare, options_for_select(@health_options)%>
-  <a href="#food_question">Next</a>  
+
+  <div class="gallery-cell-4">
+    <div class="category">
+      <h2>What kind of health insurance plan will you have?</h2>
+      <div class="dropdown">
+      <%= f.select :healthcare, options_for_select(@health_options)%>
+      </div>
+    </div>
   </div>
 
-  <div class="category" name="food_question">
-  <h2>How often will you dine out per week?</h2>
-  <%= f.label :dining_out_low, "$" %> 
-  <%= f.select :dining_out_low, options_for_select(0..21) %>
-  <%= f.label :dining_out_medium, "$$" %> 
-  <%= f.select :dining_out_medium, options_for_select(0..21) %>
-  <%= f.label :dining_out_high, "$$$" %> 
-  <%= f.select :dining_out_high, options_for_select(0..21) %>
-  <a href="#car_question">Next</a>
+  <div class="gallery-cell-5">
+    <div class="category">
+      <h2>How often will you dine out per week?</h2>
+      <%= f.label :dining_out_low, "$" %>
+      <div class="dropdown number">
+      <%= f.select :dining_out_low, options_for_select(0..21) %>
+      </div>
+      <%= f.label :dining_out_medium, "$$" %>
+      <div class="dropdown number">
+      <%= f.select :dining_out_medium, options_for_select(0..21) %>
+      </div>
+      <%= f.label :dining_out_high, "$$$" %>
+      <div class="dropdown number">
+      <%= f.select :dining_out_high, options_for_select(0..21) %>
+      </div>
+    </div>
   </div>
 
-  <div class="category" name="car_question">
-  <h2>Do you own a car?</h2>
-  <a href="#mass_transit_questions">No</a>
-  <a href="#driving_questions">Yes</a>
+  <div class="gallery-cell-6">
+    <div class="category">
+      <h2>How many times a week will you drive?</h2>
+      <div class="dropdown number">
+      <%= f.select :driving_trips, options_for_select(0..25) %>
+      </div>
+      <h2>Average time per trip?</h2>
+      <div class="dropdown number">
+      <%= f.select :car_trip_duration, options_for_select(0..60) %>
+      </div>
+    </div>
   </div>
 
-  <div>
-  <a name="driving_questions"></a>
-  <h2>How many times a week will you drive?</h2>
-  <%= f.range_field :driving_trips, :in => 0..25, :value => 0 %> 
-  <h2>Average time per trip?</h2>
-  <%= f.range_field :car_trip_duration, :in => 0..25, :value => 0 %>
-  <a href="#mass_transit_questions">Next</a>
+  <div class="gallery-cell-7">
+    <div class="category">
+      <h2>How many trips per week will you take on mass transit?</h2>
+      <div class="dropdown number">
+      <%= f.select :mass_transit_trips, options_for_select(0..25) %>
+      </div>
+      <h2>How many trips per week will you take using a taxi, Lyft, Uber, etc.?</h2>
+      <div class="dropdown number">
+      <%= f.select :cabs, options_for_select(0..25) %>
+      </div>
+    </div>
   </div>
 
-  <div class="category" name="mass_transit_questions">
-  <h2>How many trips per week will you take on mass transit?</h2>
-  <%= f.range_field :mass_transit_trips, :in => 0..25, :value => 0 %>
-  <h2>How many trips per week will you take using a taxi, Lyft, Uber, etc.?</h2>
-  <%= f.range_field :cabs, :in => 0..25, :value => 0 %>
-  <a href="#recreation_question">Next</a>
-  </div>  
-
-  <div class="category" name="recreation_question">
-  <h2>How much per week will you spend on recreation?</h2>
-  <h4>Experiences that you pay for, e.g. movies, spa visits, concerts, etc.</h4> 
-  <%= f.range_field :recreation, :in => 0..500_000, :value => 0 %>
-  <h2>How much per week will you spend on shopping?</h2>
-  <h4>i.e. tangible items (but not groceries)</h4>
-  <%= f.range_field :shopping, :in => 0..500_000, :value => 0 %>
-  <a href="#finish">Next</a> 
+  <div class="gallery-cell-8">
+    <div class="category">
+      <h2>How much per week will you spend on recreation?</h2>
+      <h4>Experiences that you pay for, e.g. gym, movies, spa visits, concerts, etc.</h4>
+      <%= f.number_field :recreation, :placeholder => "$$$" %>
+    </div>
   </div>
 
-  <div class="category" name="finish">
-  <%= f.submit "Get feedback" %> 
+  <div class="gallery-cell-9">
+    <div class="category">
+      <h2>How much per week will you spend on shopping?</h2>
+      <h4>i.e. tangible items (but not groceries)</h4>
+      <%= f.number_field :shopping, :placeholder => "$$$" %>
+    </div>
   </div>
 
+  <div class="gallery-cell-10">
+    <div class="category">
+      <%= f.submit "Get feedback", :class => "submit" %>
+    </div>
+  </div>
 <% end %>
-</div>

@@ -1,18 +1,40 @@
 class Form < ActiveRecord::Base
-  # extend FriendlyId
-  # friendly_id :random_path, use: :slugged
   belongs_to :user
   has_one :neighborhood
 
+  validate :only_three_meals_a_day
+
+  validates :income, numericality: { 
+    only_integer: true, 
+    greater_than_or_equal_to: 0,
+    less_than_or_equal_to: 500_000
+  }
+
+  validates :savings, numericality: { 
+    only_integer: true, 
+    greater_than_or_equal_to: 0,
+    less_than_or_equal_to: 500_000
+  }
+
+  validates :recreation, numericality: { 
+    only_integer: true, 
+    greater_than_or_equal_to: 0,
+    less_than_or_equal_to: 500_000
+  }
+
+  validates :shopping, numericality: { 
+    only_integer: true, 
+    greater_than_or_equal_to: 0,
+    less_than_or_equal_to: 500_000
+  }   
+
   attr_accessor :neighborhood
 
-  # validates :slug, uniqueness: true, presence: true 
-  # before_validation :generate_slug
-
-  # def generate_slug
-  #   self.slug ||= "results"
-  #   # Destroy guest when going back?
-  # end
+  def only_three_meals_a_day
+    if self["dining_out_low"] + self["dining_out_medium"] + self["dining_out_high"] > 21
+      errors.add(:dining_out_low, "Please specify at most 21 meals for dining out.")
+    end 
+  end
 
   def neighborhood(form)
     @neighborhood = Neighborhood.find(form.neighborhood_id)
