@@ -2,9 +2,8 @@
 http://flickity.metafizzy.co
 ---------------------------------------------- */
 .gallery-cell-1{
-
-  background: url(asset_path('income.jpg'));
   padding: 200px 0 300px 0;
+  background: url(asset_path('income.jpg'));
   background-size: cover;
   width: 100%;
   height: 160px;
@@ -12,12 +11,6 @@ http://flickity.metafizzy.co
   background-position: center;
   margin-right: 10px;
   height: 180px;
-}
-
-.gallery-cell-1, .layer{
-  background-color: rgba(123, 0, 255, 0.85);
-  width: 100%;
-  height: 100%;
 }
 
 .gallery-cell-2{
