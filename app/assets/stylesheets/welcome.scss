@@ -14,7 +14,7 @@
 //     font-family:inherit;
 // }
 
-/* USA Today Colors */ 
+/* USA Today Colors */
 $white: #f8f8f8;
 $blue: #009BFF;
 $green: #00A53C;
@@ -97,14 +97,14 @@ h2{
   font-family: $font-stack;
 }
 
-a, 
+a,
 a:visited{
   text-decoration: none;
   color: $white;
 }
 
 .main_logo{
-  height: 400px;
+  height: 375px;
   width: 800px;
 }
 
@@ -112,7 +112,7 @@ a:visited{
   background: $green;
   color: $white;
   width: 80%;
-  padding: 30px;
+  padding: 19px;
   height: 100px;
   margin: 1em auto;
   text-decoration: none;
@@ -122,7 +122,7 @@ a:visited{
 .start a:hover{
   color: $green;
   background: $white;
-  border: 10px solid $green; 
+  border: 10px solid $green;
 }
 
 .bios{
@@ -142,10 +142,9 @@ a:visited{
 
 .fa-share{
   -ms-transform: rotate(130deg);
-  -webkit-transform: rotate(130deg); 
+  -webkit-transform: rotate(130deg);
   transform: rotate(130deg);
   font-size: 3em;
   // padding-left: 0;
-  padding-bottom: 1em;
+   padding-bottom: 1em;
 }
-
