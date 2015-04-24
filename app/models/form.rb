@@ -4,36 +4,36 @@ class Form < ActiveRecord::Base
 
   validate :only_three_meals_a_day
 
-  validates :income, numericality: { 
-    only_integer: true, 
+  validates :income, numericality: {
+    only_integer: true,
     greater_than_or_equal_to: 0,
     less_than_or_equal_to: 500_000
   }
 
-  validates :savings, numericality: { 
-    only_integer: true, 
+  validates :savings, numericality: {
+    only_integer: true,
     greater_than_or_equal_to: 0,
     less_than_or_equal_to: 500_000
   }
 
-  validates :recreation, numericality: { 
-    only_integer: true, 
+  validates :recreation, numericality: {
+    only_integer: true,
     greater_than_or_equal_to: 0,
     less_than_or_equal_to: 500_000
   }
 
-  validates :shopping, numericality: { 
-    only_integer: true, 
+  validates :shopping, numericality: {
+    only_integer: true,
     greater_than_or_equal_to: 0,
     less_than_or_equal_to: 500_000
-  }   
+  }
 
   attr_accessor :neighborhood
 
   def only_three_meals_a_day
     if self["dining_out_low"] + self["dining_out_medium"] + self["dining_out_high"] > 21
       errors.add(:dining_out_low, "Please specify at most 21 meals for dining out.")
-    end 
+    end
   end
 
   def neighborhood(form)
@@ -77,18 +77,18 @@ class Form < ActiveRecord::Base
       @healthcare_cost = employer_paid
     elsif plan == 'Bronze'
       @healthcare_cost = bronze
-    elsif plan == 'Silver' 
+    elsif plan == 'Silver'
       @healthcare_cost = silver
     elsif plan == 'Gold'
       @healthcare_cost = gold
     elsif plan =='Platinum'
       @healthcare_cost = platinum
-    else 
+    else
       @healthcare_cost = catastrophic
     end
     return @healthcare_cost
   end
-        
+
 
 
   def tax_income (income)
@@ -104,7 +104,7 @@ class Form < ActiveRecord::Base
 
     @dining_cost = 52 *
       ((low_cost * low_meals) +
-      (medium_cost * medium_meals) + 
+      (medium_cost * medium_meals) +
       (high_cost * high_meals))
 
     return @dining_cost
@@ -119,31 +119,32 @@ class Form < ActiveRecord::Base
   end
 
   def driving_cost(driving_trips, car_trip_duration)
+    car_trip = car_trip_duration.to_f / 60 * 40 #40 mph
     gas = 2.50
-    driving = driving_trips * car_trip_duration * 2.50 * 52
+    driving = driving_trips * gas * car_trip / 25 * 52
     @driving_cost = driving
     return @driving_cost
   end # this method is not complete yet
 
 
   def transportation_cost(mass_transit_trips)
-    mass_transit = 2.54 * mass_transit_trips 
+    mass_transit = 2.54 * mass_transit_trips
     @transportation_cost = mass_transit * 52
     return @transportation_cost
   end
 
   def cabs_cost(cabs)
     cab_transit = 10 * cabs * 52
-    @cabs_cost = cab_transit 
+    @cabs_cost = cab_transit
     return @cabs_cost
   end
 
   # def recreation_cost
   #   gym = 499.99
-  #   movies = 15 
+  #   movies = 15
   #   concert= 35
   #   spa = 85
   # end
-  
+
 
 end

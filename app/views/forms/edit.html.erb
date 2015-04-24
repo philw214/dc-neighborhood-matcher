@@ -5,11 +5,11 @@
 <% if @form.errors.any? %>
   <div class="errors">
   <% @form.errors.each do |attribute, message| %>
-    <% if attribute == :dining_out_low %> 
+    <% if attribute == :dining_out_low %>
       <p><%= message %></p>
-    <% else %> 
+    <% else %>
       <p> <%= "#{attribute.capitalize} #{message}." %> </p>
-    <% end %> 
+    <% end %>
   <% end %>
   </div>
 <% end %>
@@ -28,7 +28,7 @@
   <div class="gallery-cell-2">
     <div class="category">
       <h2>Where would you like to live?</h2>
-      <div class="dropdown">
+      <div class="dropdown neighborhood">
       <%= select_tag "neighborhood", options_for_select(@neighborhoods.collect {|n| [n["name"], n.id]}, selected: @neighborhood["id"]) %>
       </div>
       <h2>How many bedrooms would you like?</h2>

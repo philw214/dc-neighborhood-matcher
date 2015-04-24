@@ -5,11 +5,11 @@
 <% if @form.errors.any? %>
   <div class="errors">
   <% @form.errors.each do |attribute, message| %>
-    <% if attribute == :dining_out_low %> 
+    <% if attribute == :dining_out_low %>
       <p><%= message %></p>
-    <% else %> 
+    <% else %>
       <p> <%= "#{attribute.capitalize} #{message}." %> </p>
-    <% end %> 
+    <% end %>
   <% end %>
   </div>
 <% end %>
@@ -28,7 +28,7 @@
   <div class="gallery-cell-2">
     <div class="category">
       <h2>Where would you like to live?</h2>
-      <div class="dropdown">
+      <div class="dropdown neighborhood">
       <%= select_tag "neighborhood", options_for_select(@neighborhoods.collect {|n| [n["name"], n.id]}) %>
       </div>
       <h2>How many bedrooms would you like?</h2>
@@ -41,7 +41,7 @@
 
   <div class="gallery-cell-3">
     <div class="category">
-      <h2>How much do you plan on setting aside for personal savings and retirement?</h2>
+      <h2>How much do you plan on setting aside for savings and retirement per year?</h2>
       <%= f.number_field :savings, :placeholder => "$$$" %>
     </div>
   </div>
@@ -80,7 +80,7 @@
       <div class="dropdown number">
       <%= f.select :driving_trips, options_for_select(0..25) %>
       </div>
-      <h2>Average time per trip?</h2>
+      <h2>Average time per trip(minutes)?</h2>
       <div class="dropdown number">
       <%= f.select :car_trip_duration, options_for_select(0..60) %>
       </div>
