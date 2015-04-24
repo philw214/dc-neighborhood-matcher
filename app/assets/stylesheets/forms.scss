@@ -13,7 +13,7 @@
 //   padding: 200px 0 200px 0;
 // }
 
-/* USA Today Colors */ 
+/* USA Today Colors */
 $white: #f8f8f8;
 $blue: #009BFF;
 $green: #00A53C;
@@ -60,7 +60,7 @@ input[type=number]{
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance:none;
-  font-size: 0.8em;
+  font-size: 1em;
   font-family: $font-stack;
   width: 400px;
   background: transparent;
@@ -109,7 +109,7 @@ input[type=number]{
     text-align: center;
   }
 
-  a, 
+  a,
   a:visited{
     text-decoration: none;
     color: $green;
@@ -126,5 +126,5 @@ input[type=number]{
 }
 
 .overspend{
-  color: $red; 
+  color: $red;
 }
